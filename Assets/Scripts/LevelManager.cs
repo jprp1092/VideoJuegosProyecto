@@ -6,80 +6,96 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField]
-    private bool circularNavigation = true;
+    bool CircularNavigation = true;
+
 
     /// <summary>
-    /// Returns the current scene index.
+    /// Returns Current Scene Index.
     /// </summary>
-    /// <returns>The current scene index.</returns>
-    public int GetCurrentSceneIndex()
+    /// <returns> Current Scene Index </returns>
+
+    public int GetCurrentScene()
     {
+
         return SceneManager.GetActiveScene().buildIndex;
+
     }
 
-    /// <summary>
-    /// Returns the index of the last scene in the build settings.
-    /// </summary>
-    /// <returns>The index of the last scene in the build settings.</returns>
-    public int GetLastSceneIndex()
+
+    public int GetLastScene()
     {
+
+
         return SceneManager.sceneCountInBuildSettings - 1;
     }
 
+
     /// <summary>
-    /// Loads the first scene in the build settings.
+    /// Navigates to First Scene
     /// </summary>
-    public void LoadFirstScene()
+
+    public void FirstScene()
     {
+
         SceneManager.LoadScene(0);
+
     }
 
     /// <summary>
-    /// Loads the last scene in the build settings.
+    /// Navigates to Last Scene
     /// </summary>
-    public void LoadLastScene()
+
+
+    public void LastScene()
     {
-        int lastSceneIndex = GetLastSceneIndex();
-        SceneManager.LoadScene(lastSceneIndex);
+
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+
+
     }
 
     /// <summary>
-    /// Loads the next scene in the build settings.
+    /// Navigates to Next Scene
     /// </summary>
-    public void LoadNextScene()
+
+    public void NextScene()
     {
-        int currentSceneIndex = GetCurrentSceneIndex();
-        int lastSceneIndex = GetLastSceneIndex();
+        // Almacena el valor del incide de la escena actual
+        int currentScene = GetCurrentScene();
+        // Almacena el valor del incide de la ultima escena
+        int lastScene = GetLastScene();
 
-        int nextSceneIndex = currentSceneIndex + 1;
-        bool isAtLastScene = currentSceneIndex == lastSceneIndex;
+        if (currentScene < lastScene)
+        {
 
-        if (isAtLastScene)
-        {
-            if (circularNavigation)
-            {
-                LoadFirstScene();
-            }
+
+            SceneManager.LoadScene(currentScene + 1);
+
+
         }
-        else
+        else if (CircularNavigation)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+
+            // Cargue la primera escena
+            FirstScene();
+
         }
+
+
     }
 
-    /// <summary>
-    /// Loads the previous scene in the build settings.
-    /// </summary>
-    
-    public void LoadPreviousScene()
+    public void PreviousScene()
     {
-        int currentSceneIndex = GetCurrentSceneIndex();
-        int previousSceneIndex = currentSceneIndex - 1;
 
-        if (previousSceneIndex >= 0)
+        int currentScene = GetCurrentScene();
+
+        if (currentScene > 0)
         {
-            SceneManager.LoadScene(previousSceneIndex);
+
+            SceneManager.LoadScene(currentScene - 1);
         }
+
     }
+
 
 }

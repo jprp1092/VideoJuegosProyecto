@@ -26,10 +26,13 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField]
-    Button speedBostButton;
-
-    [SerializeField]
     float speed = 5.0F;
+    public float maxSpeed = 10.0f;
+    public float initialSpeed = 5.0f;
+    public float boostSpeed = 10.0f;
+
+    private bool isBoosted = false;
+
 
     [SerializeField]
     Animator animator;
@@ -41,9 +44,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Vector2 lastDirection;
 
-
-
-
+    [SerializeField]
+    TextMeshProUGUI SpeedCount;
 
     void Awake()
     {
@@ -61,8 +63,29 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void BoostSpeed()
+    {
+        // Verifica si el valor del TextMeshProUGUI es mayor o igual a 1
+        if (int.TryParse(SpeedCount.text, out int count) && count >= 1 && !isBoosted)
+        {
+            // Aumenta la velocidad del jugador
+            speed = boostSpeed;
 
+            // Resta uno al valor del TextMeshProUGUI
+            SpeedCount.text = (count - 1).ToString();
 
+            // Inicia la corutina para devolver la velocidad a su valor inicial
+            StartCoroutine(ReturnToNormalSpeed());
+        }
+    }
+
+    IEnumerator ReturnToNormalSpeed()
+    {
+        isBoosted = true;
+        yield return new WaitForSeconds(5.0f); // Espera 5 segundos
+        speed = initialSpeed; // Restablece la velocidad inicial
+        isBoosted = false;
+    }
 
 
     void Update()
@@ -96,9 +119,6 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("vertical", direction.y);
         animator.SetFloat("speed", direction.sqrMagnitude);
     }
-
-
-
 
 
     public void IncreaseCollectible(string collectibleType, int value)
@@ -135,10 +155,6 @@ public class PlayerController : MonoBehaviour
                     OnHeartCompleCountChanged.Invoke(collectibles[collectibleType]);
                 }
                 break;
-
-
-
-
         }
     }
 

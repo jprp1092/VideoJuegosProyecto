@@ -97,10 +97,13 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
-  speedBostButton: {fileID: 0}
   speed: 5
+  maxSpeed: 10
+  initialSpeed: 5
+  boostSpeed: 10
   animator: {fileID: 1053591042019416286}
   lastDirection: {x: 0, y: 0}
+  SpeedCount: {fileID: 0}
 --- !u!70 &1053591040195980383
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
