@@ -41,10 +41,13 @@ public class MeleeController : MonoBehaviour
 
         foreach (Collider2D collider in colliders) 
         {
-            HealthController healthController = collider.GetComponent<HealthController>();
-            if (healthController != null)
+            if (!collider.CompareTag("Player"))
             {
-                healthController.TakeDamage(damage);
+                HealthController healthController = collider.GetComponent<HealthController>();
+                if (healthController != null)
+                {
+                    healthController.TakeDamage(damage);
+                }
             }
         }
     }

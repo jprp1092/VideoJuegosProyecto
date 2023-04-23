@@ -5,6 +5,8 @@ public class HealthController : MonoBehaviour
 {
     [SerializeField]
     float maximumHealth = 100.0F;
+
+    [SerializeField]
     float currentHealth = 0.0F;
     void Start()
     {
