@@ -14,13 +14,15 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject[] enemyPrefabs;
 
-    float currentTime = 0.0F;
+    int enemiesSpawned = 0; // contador de enemigos creados
+    int maxEnemies = 5; // cantidad máxima de enemigos permitidos
 
+    float currentTime = 0.0F;
 
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= spawnTime)
+        if (currentTime >= spawnTime && enemiesSpawned < maxEnemies) // agregamos la verificación para el límite de enemigos
         {
             currentTime = 0.0F;
             SpawnEnemy();
@@ -29,10 +31,14 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-        Transform position = positions[Random.Range(0, positions.Length)];
+        if (enemiesSpawned < maxEnemies) // agregamos la verificación para el límite de enemigos
+        {
+            GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+            Transform position = positions[Random.Range(0, positions.Length)];
 
-        Instantiate(prefab, position.position, Quaternion.identity);
+            Instantiate(prefab, position.position, Quaternion.identity);
+
+            enemiesSpawned++; // incrementamos el contador de enemigos creados
+        }
     }
-
 }
