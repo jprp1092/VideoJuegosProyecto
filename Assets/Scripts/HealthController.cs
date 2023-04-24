@@ -10,10 +10,19 @@ public class HealthController : MonoBehaviour
 
     [SerializeField]
     float currentHealth = 0.0F;
+
+    private SoundController soundController;
+
     void Start()
     {
         currentHealth = maximumHealth;
     }
+
+    private void Awake()
+    {
+        soundController = FindObjectOfType<SoundController>();
+    }
+
     public void TakeDamage(float value)
     {
         currentHealth -= Mathf.Abs(value);

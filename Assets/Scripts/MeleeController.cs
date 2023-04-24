@@ -17,6 +17,8 @@ public class MeleeController : MonoBehaviour
     public float initialdamage = 15.0f;
     public float boostdamage = 25.0f;
 
+    private SoundController soundController;
+
     [SerializeField]
     TextMeshProUGUI ForceCount;
 
@@ -32,6 +34,7 @@ public class MeleeController : MonoBehaviour
 
             // Resta uno al valor del TextMeshProUGUI
             ForceCount.text = (count - 1).ToString();
+            soundController.PlaySound("BoostDamage");
 
             // Inicia la corutina para devolver la velocidad a su valor inicial
             StartCoroutine(ReturnToNormalDamage());
@@ -50,6 +53,7 @@ public class MeleeController : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+        soundController = FindObjectOfType<SoundController>();
     }
 
     void Update()
@@ -57,6 +61,7 @@ public class MeleeController : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) 
         {
             animator.SetTrigger("melee");
+            soundController.PlaySound("Espada");
         }
     }
 

@@ -10,6 +10,13 @@ public class CollectibleController : MonoBehaviour
     [SerializeField]
     int value;
 
+    private SoundController soundController;
+
+    private void Awake()
+    {
+        soundController = FindObjectOfType<SoundController>();
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -19,6 +26,7 @@ public class CollectibleController : MonoBehaviour
             if (controller != null) 
             {           
                 controller.IncreaseCollectible(collectibleType, value);
+                soundController.PlaySound("RecogerItem");
             }
             Destroy(gameObject);
         }

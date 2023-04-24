@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -47,6 +46,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Sprite corazonActivar;
 
+    private SoundController soundController;
+
 
     private bool isBoosted = false;
 
@@ -67,9 +68,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI HeartCompleCount;
 
+  
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        soundController = FindObjectOfType<SoundController>();
 
         collectibles =
            new Dictionary<string, int>()
@@ -91,17 +95,19 @@ public class PlayerController : MonoBehaviour
         if (currentHealth < 100.0f)
         {
             BajarVida(1);
+            soundController.PlaySound("BajarVida");
         }
         else if (currentHealth < 300.0f)
         {
             BajarVida(2);
+            soundController.PlaySound("BajarVida");
         }
 
         if (currentHealth <= 0.0F)
         {
             BajarVida(0);
+            soundController.PlaySound("BajarVida");
             Destroy(gameObject);
-            SceneManager.LoadScene(4);
         }
     }
 
@@ -110,7 +116,8 @@ public class PlayerController : MonoBehaviour
         Image imgCorazon = corazones[indice].GetComponent<Image>();
         imgCorazon.sprite = corazonDesativado;
         imgCorazon.color = new Color32(85, 85, 85, 255);
-            
+        
+
     }
 
     public void RecuperarVida(int indice)
@@ -119,11 +126,10 @@ public class PlayerController : MonoBehaviour
         Image imgCorazon = corazones[indice].GetComponent<Image>();
         imgCorazon.sprite = corazonActivar;
         imgCorazon.color = new Color32(255, 0, 0, 255);
+        soundController.PlaySound("BoostHeal");
 
-            
-        
+
     }
-
 
 
     void Start()
@@ -141,6 +147,7 @@ public class PlayerController : MonoBehaviour
 
             // Resta uno al valor del TextMeshProUGUI
             SpeedCount.text = (count - 1).ToString();
+            soundController.PlaySound("BoostSpeed");
 
             // Inicia la corutina para devolver la velocidad a su valor inicial
             StartCoroutine(ReturnToNormalSpeed());
