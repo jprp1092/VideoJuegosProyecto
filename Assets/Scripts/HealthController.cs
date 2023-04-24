@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class HealthController : MonoBehaviour
 {
     [SerializeField]
@@ -18,6 +20,12 @@ public class HealthController : MonoBehaviour
         if (currentHealth <= 0.0F)
         {
             Destroy(gameObject);
+            if (gameObject.CompareTag("Boss"))
+            {
+                Debug.Log("You win!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                return;
+            }
         }
     }
 }

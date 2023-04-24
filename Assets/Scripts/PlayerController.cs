@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float value)
     {
+        animator.SetTrigger("hurt");
         currentHealth -= Mathf.Abs(value);
 
         if (currentHealth < 100.0f)

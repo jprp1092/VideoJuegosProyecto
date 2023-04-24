@@ -14,8 +14,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     GameObject[] enemyPrefabs;
 
+    [SerializeField]
+    GameObject[] bossPrefabs;
+
     int enemiesSpawned = 0; // contador de enemigos creados
-    int maxEnemies = 5; // cantidad máxima de enemigos permitidos
+    int maxEnemies = 2; // cantidad máxima de enemigos permitidos
+    int bossesSpawned = 0;
+    int maxBosses = 1;
 
     float currentTime = 0.0F;
 
@@ -26,6 +31,10 @@ public class SpawnManager : MonoBehaviour
         {
             currentTime = 0.0F;
             SpawnEnemy();
+        } else if (currentTime >= spawnTime && bossesSpawned < maxBosses)
+        {
+            currentTime = 0.0F;
+            SpawnBoss();
         }
     }
 
@@ -39,6 +48,17 @@ public class SpawnManager : MonoBehaviour
             Instantiate(prefab, position.position, Quaternion.identity);
 
             enemiesSpawned++; // incrementamos el contador de enemigos creados
+        }
+    }
+
+    void SpawnBoss()
+    {
+        if (bossesSpawned < maxBosses)
+        {
+            GameObject bossPrefab = bossPrefabs[Random.Range(0, bossPrefabs.Length)];
+            Transform position = positions[Random.Range(0, positions.Length)];
+            Instantiate(bossPrefab, position.position, Quaternion.identity);
+            bossesSpawned++;
         }
     }
 }
