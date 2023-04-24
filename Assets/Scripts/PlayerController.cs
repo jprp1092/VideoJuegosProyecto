@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour
         {
             BajarVida(0);
             Destroy(gameObject);
+            SceneManager.LoadScene(4);
         }
     }
 
