@@ -175,7 +175,7 @@ MonoBehaviour:
   distance: 2
   attackPoint: {fileID: 6657939528686237471}
   attackRadius: 1.5
-  damage: 30
+  damage: 25
 --- !u!114 &6657939527731424403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cf1cd23c2bdec4ab4a99a301d3b4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumHealth: 300
+  maximumHealth: 200
   currentHealth: 0
 --- !u!1 &6657939528686237472
 GameObject:

@@ -30,8 +30,7 @@ public class HealthController : MonoBehaviour
         {
             Destroy(gameObject);
             if (gameObject.CompareTag("Boss"))
-            {
-                Debug.Log("You win!");
+            { 
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 return;
             }

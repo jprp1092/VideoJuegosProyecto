@@ -17,6 +17,8 @@ public class MeleeController : MonoBehaviour
     public float initialdamage = 15.0f;
     public float boostdamage = 25.0f;
 
+    bool nextAttack = true;
+
     private SoundController soundController;
 
     [SerializeField]
@@ -58,11 +60,20 @@ public class MeleeController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1") && nextAttack) 
         {
+            nextAttack = false;
             animator.SetTrigger("melee");
             soundController.PlaySound("Espada");
+            PlayerAttack();
+            StartCoroutine(EsperarAtaque());
         }
+    }
+
+    IEnumerator EsperarAtaque()
+    {
+        yield return new WaitForSeconds(0.5f);
+        nextAttack = true;
     }
 
     void OnDrawGizmos()
@@ -71,7 +82,7 @@ public class MeleeController : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 
-    public void OnAttack() 
+    public void PlayerAttack() 
     {
         Collider2D[] colliders = 
             Physics2D.OverlapCircleAll(attackPoint.position, attackRadius);

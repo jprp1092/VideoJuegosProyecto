@@ -89,7 +89,7 @@ public class AIEnemy : MonoBehaviour
         }
     }
 
-    public void OnAttack()
+    public void EnemyAttack()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius);
 
@@ -97,11 +97,7 @@ public class AIEnemy : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                PlayerController healthController = collider.GetComponent<PlayerController>();
-                if (healthController != null)
-                {
-                    healthController.TakeDamage(damage);
-                }
+                player.GetComponent<PlayerController>().TakeDamage(damage);
             }
         }
     }

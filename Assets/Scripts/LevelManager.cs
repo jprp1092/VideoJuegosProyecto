@@ -13,6 +13,12 @@ public class LevelManager : MonoBehaviour
     /// Returns Current Scene Index.
     /// </summary>
     /// <returns> Current Scene Index </returns>
+    /// 
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(GetCurrentScene());
+    }
 
     public int GetCurrentScene()
     {

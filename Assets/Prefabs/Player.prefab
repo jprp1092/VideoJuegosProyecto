@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1053591040195980381}
   - component: {fileID: 1053591040195980380}
   - component: {fileID: 1053591040195980383}
+  - component: {fileID: 1138268764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -140,6 +141,7 @@ MonoBehaviour:
   - {fileID: 0}
   corazonDesativado: {fileID: 21300000, guid: fc50b451cb554584f8ff14489f44bd5c, type: 2}
   corazonActivar: {fileID: -623327403, guid: 7ed75e39706fe5848913e532b4b67921, type: 3}
+  PanelGameOver: {fileID: 0}
   animator: {fileID: 1053591042019416286}
   lastDirection: {x: 0, y: 0}
   SpeedCount: {fileID: 0}
@@ -160,6 +162,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06547658, y: 0.01061038}
   m_Size: {x: 1.1823341, y: 2.138858}
   m_Direction: 0
+--- !u!95 &1138268764
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053591040195980382}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18fef79372d1d944e9fa1baa87a2e419, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1053591040498365984
 GameObject:
   m_ObjectHideFlags: 0

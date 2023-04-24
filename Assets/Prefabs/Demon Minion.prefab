@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 829871920}
   m_Layer: 6
   m_Name: Demon Minion
-  m_TagString: Sword
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

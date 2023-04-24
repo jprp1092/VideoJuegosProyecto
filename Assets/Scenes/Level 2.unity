@@ -13064,6 +13064,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 801623030}
     - target: {fileID: 1053591040195980380, guid: 4751a708569464e498d5384570b84d6d, type: 3}
+      propertyPath: PanelGameOver
+      value: 
+      objectReference: {fileID: 7350822173116670511}
+    - target: {fileID: 1053591040195980380, guid: 4751a708569464e498d5384570b84d6d, type: 3}
       propertyPath: HeartCompleCount
       value: 
       objectReference: {fileID: 1190724610}
@@ -14083,10 +14087,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 695121450}
     m_Modifications:
-    - target: {fileID: 6657939527731424403, guid: 9a14e7c9df65f444bbea58238c09e1d5, type: 3}
-      propertyPath: maximumHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 6657939527731424408, guid: 9a14e7c9df65f444bbea58238c09e1d5, type: 3}
       propertyPath: player
       value: 
@@ -16429,6 +16429,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1875062899}
+    - target: {fileID: 5668658069401120661, guid: 1cce7c5ea8ad6cd42a444775bd3710b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1875062899}
+    - target: {fileID: 5668658069401120661, guid: 1cce7c5ea8ad6cd42a444775bd3710b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 7350822171831528578, guid: 1cce7c5ea8ad6cd42a444775bd3710b9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16539,6 +16547,11 @@ PrefabInstance:
       objectReference: {fileID: 1458759665}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cce7c5ea8ad6cd42a444775bd3710b9, type: 3}
+--- !u!1 &7350822173116670511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5668658068258666262, guid: 1cce7c5ea8ad6cd42a444775bd3710b9, type: 3}
+  m_PrefabInstance: {fileID: 7350822173116670510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7618100187265537785
 PrefabInstance:
   m_ObjectHideFlags: 0

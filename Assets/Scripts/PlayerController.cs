@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public float boostSpeed = 10.0f;
 
     [SerializeField]
-    float maximumHealth = 100.0F;
+    float maximumHealth = 300.0F;
 
     [SerializeField]
     float currentHealth = 0.0F;
@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     private SoundController soundController;
 
+    [SerializeField]
+    GameObject PanelGameOver;
 
     private bool isBoosted = false;
 
@@ -107,7 +109,8 @@ public class PlayerController : MonoBehaviour
         {
             BajarVida(0);
             soundController.PlaySound("BajarVida");
-            Destroy(gameObject);
+            animator.SetTrigger("die");
+            StartCoroutine(EsperarMuerte());
         }
     }
 
@@ -169,6 +172,12 @@ public class PlayerController : MonoBehaviour
 
             
         }
+    }
+
+    IEnumerator EsperarMuerte()
+    {
+        yield return new WaitForSeconds(2.0f);
+        PanelGameOver.SetActive(true);
     }
 
     IEnumerator ReturnToNormalSpeed()

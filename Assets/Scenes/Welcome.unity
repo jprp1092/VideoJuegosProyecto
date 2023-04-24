@@ -1950,7 +1950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: 230}
+  m_AnchoredPosition: {x: 90, y: 221}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291845716
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: the knight's path
+  m_text: The knight's path
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 25bb9566a98ed4e46ab3a6a3f748194c, type: 2}
   m_sharedMaterial: {fileID: 5271763710992718610, guid: 25bb9566a98ed4e46ab3a6a3f748194c, type: 2}
@@ -2014,8 +2014,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2987,14 +2987,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7154551953252532440, guid: 07c2e3553f899ee4fa4f6aeca6d75c14, type: 3}
-      propertyPath: m_Volume
-      value: 0.532
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154551953252532440, guid: 07c2e3553f899ee4fa4f6aeca6d75c14, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: bac1faa0cfe5b4c409bb37c2e00b1f32, type: 3}
     - target: {fileID: 7154551953345051581, guid: 07c2e3553f899ee4fa4f6aeca6d75c14, type: 3}
       propertyPath: m_Name
       value: AudioManager
