@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1699917879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1699917880}
+  m_Layer: 0
+  m_Name: attackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1699917880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699917879}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.002, y: 0.069, z: 0.017484125}
+  m_LocalScale: {x: 0.056876667, y: 0.055416666, z: 0.11666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7192229742615918355}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1981109688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981109689}
+  m_Layer: 0
+  m_Name: attackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1981109689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981109688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.003, y: 0.07, z: 0.017484125}
+  m_LocalScale: {x: 0.056876667, y: 0.055416666, z: 0.11666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7192229742615918355}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7192229742615918354
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,9 +76,11 @@ GameObject:
   - component: {fileID: 7192229742615918359}
   - component: {fileID: 7192229742615918358}
   - component: {fileID: -1568328175747465212}
+  - component: {fileID: 829871920}
+  - component: {fileID: 2103478537}
   m_Layer: 6
   m_Name: Demon Minion
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,11 +92,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7192229742615918354}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.31, y: -3.27, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1981109689}
+  - {fileID: 1699917880}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,7 +143,7 @@ SpriteRenderer:
   m_SortingLayerID: 1047757827
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 617457817, guid: 49f0d05150852274e9e74216a68c9d6c, type: 3}
+  m_Sprite: {fileID: -1886735233, guid: 68932c375c0eba74f8c9babcde9761e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +164,7 @@ Animator:
   m_GameObject: {fileID: 7192229742615918354}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7ea3da11ad228584b95b432582047dd0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0e0f08c3aabbb2b44806da6d710ddc16, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -142,7 +208,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005893022, y: 0.042823225}
+  m_Offset: {x: 0.0026691556, y: 0.055342168}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +219,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5030743, y: 0.357042}
+  m_Size: {x: 0.23225039, y: 0.2520442}
   m_EdgeRadius: 0
 --- !u!114 &-1568328175747465212
 MonoBehaviour:
@@ -167,6 +233,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac6262bea0089e44a3ab8a2adbc899c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1053591040195980382, guid: 4751a708569464e498d5384570b84d6d, type: 3}
-  speed: 3
+  player: {fileID: 0}
+  animator: {fileID: 7192229742615918352}
+  speed: 2
   distance: 2
+  attackPoint: {fileID: 1981109689}
+  attackRadius: 0.9
+  damage: 10
+--- !u!114 &829871920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192229742615918354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cf1cd23c2bdec4ab4a99a301d3b4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximumHealth: 35
+  currentHealth: 0
+--- !u!114 &2103478537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192229742615918354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cf1cd23c2bdec4ab4a99a301d3b4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximumHealth: 75
+  currentHealth: 0

@@ -31,6 +31,22 @@ public class PlayerController : MonoBehaviour
     public float initialSpeed = 5.0f;
     public float boostSpeed = 10.0f;
 
+    [SerializeField]
+    float maximumHealth = 100.0F;
+
+    [SerializeField]
+    float currentHealth = 0.0F;
+
+    [SerializeField]
+    private List<GameObject> corazones;
+
+    [SerializeField]
+    private Sprite corazonDesativado;
+
+    [SerializeField]
+    private Sprite corazonActivar;
+
+
     private bool isBoosted = false;
 
 
@@ -46,6 +62,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI SpeedCount;
+
+    [SerializeField]
+    TextMeshProUGUI HeartCompleCount;
 
     void Awake()
     {
@@ -63,6 +82,52 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void TakeDamage(float value)
+    {
+        currentHealth -= Mathf.Abs(value);
+
+        if (currentHealth < 100.0f)
+        {
+            BajarVida(1);
+        }
+        else if (currentHealth < 300.0f)
+        {
+            BajarVida(2);
+        }
+
+        if (currentHealth <= 0.0F)
+        {
+            BajarVida(0);
+            Destroy(gameObject);
+        }
+    }
+
+    public void BajarVida(int indice)
+    {
+        Image imgCorazon = corazones[indice].GetComponent<Image>();
+        imgCorazon.sprite = corazonDesativado;
+        imgCorazon.color = new Color32(85, 85, 85, 255);
+            
+    }
+
+    public void RecuperarVida(int indice)
+    {
+        
+        Image imgCorazon = corazones[indice].GetComponent<Image>();
+        imgCorazon.sprite = corazonActivar;
+        imgCorazon.color = new Color32(255, 0, 0, 255);
+
+            
+        
+    }
+
+
+
+    void Start()
+    {
+        currentHealth = maximumHealth;
+    }
+
     public void BoostSpeed()
     {
         // Verifica si el valor del TextMeshProUGUI es mayor o igual a 1
@@ -76,6 +141,23 @@ public class PlayerController : MonoBehaviour
 
             // Inicia la corutina para devolver la velocidad a su valor inicial
             StartCoroutine(ReturnToNormalSpeed());
+        }
+    }
+    public void HeartComple()
+    {
+        // Verifica si el valor de HeartCompleCount es mayor o igual a 1
+        if (int.TryParse(HeartCompleCount.text, out int count) && count >= 1)
+        {
+            // Incrementa el valor al maximumHealth
+            currentHealth = maximumHealth;
+            RecuperarVida(1);
+            RecuperarVida(2);
+            RecuperarVida(0);
+
+            // Resta uno al valor de HeartCompleCount
+            HeartCompleCount.text = (count - 1).ToString();
+
+            
         }
     }
 
@@ -157,8 +239,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
-
 
 
 

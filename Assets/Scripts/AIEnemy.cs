@@ -97,7 +97,7 @@ public class AIEnemy : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                PlayerHealthController healthController = collider.GetComponent<PlayerHealthController>();
+                PlayerController healthController = collider.GetComponent<PlayerController>();
                 if (healthController != null)
                 {
                     healthController.TakeDamage(damage);
