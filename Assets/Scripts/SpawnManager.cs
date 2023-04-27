@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
     GameObject[] bossPrefabs;
 
     int enemiesSpawned = 0; // contador de enemigos creados
-    int maxEnemies = 2; // cantidad máxima de enemigos permitidos
+    int maxEnemies = 8; // cantidad máxima de enemigos permitidos
     int bossesSpawned = 0;
     int maxBosses = 1;
 

@@ -29,12 +29,18 @@ public class Menu : MonoBehaviour
     }
 
 
-    private void Update()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !PanelOpciones.activeSelf)
         {
-            // Activa el objeto de panel
-            PanelPause.SetActive(true);
+            // Desactiva el panel de opciones si está activo
+            PanelOpciones.SetActive(false);
+
+            // Activa el panel de pausa si está inactivo
+            if (!PanelPause.activeSelf)
+            {
+                PanelPause.SetActive(true);
+            }
         }
     }
 
